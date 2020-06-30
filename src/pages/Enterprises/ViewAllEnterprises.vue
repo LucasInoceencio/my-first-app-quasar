@@ -45,6 +45,7 @@
 <script>
   import axios from 'axios';
   import EditEnterprise from './UpdateEnterprise';
+  import { date } from 'quasar';
 
   export default {
     name: "ViewAllEnterprises",
@@ -63,7 +64,7 @@
           { name: 'companyName', align: 'center', label: 'Razão Social', field: 'company_name', sortable: true },
           { name: 'tradingName', align: 'center', label: 'Nome Fantasia', field: 'trading_name', sortable: true },
           { name: 'cnpj', align: 'center', label: 'CNPJ', field: 'cnpj', sortable: true },
-          { name: 'openingDate', align: 'center', label: 'Data de Abertura', field: 'opening_date', sortable: true }
+          { name: 'openingDate', align: 'center', label: 'Data de Abertura', type:'date', format: (val, row) => date.formatDate(val,'DD-MM-YYYY'), field:'opening_date', sortable: true }
         ],
         data: [],
         editedEnterprise:null
@@ -85,7 +86,7 @@
       Consult() {
         axios.get('http://localhost/enterprise/EnterpriseWS/Retrieve.php').then((response) => {
           this.data = response.data;
-          console.log(this.data);
+          //console.log(this.data);
         });
       },
       Edit(enterprise) {

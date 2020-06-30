@@ -70,7 +70,7 @@ export default {
           title: 'Empresas',
           caption: 'Acompanhe os usuários.',
           icon: 'fas fa-users',
-          link: 'http://localhost:8080/#/allEnterprises'
+          link: 'http://localhost:8080/#/'
         }
       ]
     }
